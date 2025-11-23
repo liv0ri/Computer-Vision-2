@@ -1,1 +1,1 @@
-# Computer-Vision-2
+#  ARI3129-SEM1-A-2526: Advanced Computer Vision for Artificial Intelligence
