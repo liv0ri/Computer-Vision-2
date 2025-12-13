@@ -28,6 +28,6 @@ dependencies:
   - pytorch::torchvision=0.19
   - pytorch::torchaudio=2.4
   - pip:
-      - ultralytics==8.3.45
+      - ultralytics
       - albumentations==1.4.11
-      - label-studio-tools==0.0.5
+      - label-studio-tools
