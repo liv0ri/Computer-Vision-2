@@ -8,7 +8,6 @@ from torchvision.ops import box_iou
 from PIL import Image
 import matplotlib.pyplot as plt
 import json, os
-import torch.nn as nn
 
 # Classes
 # FasterRCNN uses background so background is set to 0 and we staart from 1
