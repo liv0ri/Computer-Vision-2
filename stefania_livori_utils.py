@@ -15,10 +15,12 @@ def get_device():
 
 
 def get_faster_rcnn(num_classes):
+    # model
     model = fasterrcnn_resnet50_fpn(
         weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT
     )
     in_features = model.roi_heads.box_predictor.cls_score.in_features
+    # Replace the pre-trained head with a new one
     model.roi_heads.box_predictor = FastRCNNPredictor(
         in_features, num_classes
     )
@@ -66,7 +68,9 @@ def evaluate_map50(model, loader, device, iou_threshold=0.5):
                     fn += len(gt_boxes)
                     continue
 
+                # Compute IoU between predicted and ground truth boxes
                 ious = box_iou(pred_boxes, gt_boxes)
+                # Find best match gt for each predicted box
                 matched = set()
 
                 for i in range(len(pred_boxes)):
