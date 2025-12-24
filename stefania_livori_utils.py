@@ -60,7 +60,12 @@ def evaluate_map50(model, loader, device, iou_threshold=0.5):
                 gt_boxes = tgt["boxes"].to(device)
                 gt_labels = tgt["labels"].to(device)
 
-                keep = out["scores"] > 0.5
+                scores = out["scores"]
+                max_score = scores.max().item() if len(scores) > 0 else 0
+                if max_score > 0.1: # Only print if there's some confidence
+                    print(f"Image ID {tgt['image_id'].item()}: Max prediction score = {max_score:.4f}")
+
+                keep = out["scores"] > 0.05 # Lowered threshold for debugging
                 pred_boxes = out["boxes"][keep]
                 pred_labels = out["labels"][keep]
 
@@ -92,7 +97,7 @@ def evaluate_map50(model, loader, device, iou_threshold=0.5):
     return precision * recall
 
 
-def visualize_predictions(img, prediction, class_names, threshold=0.6):
+def visualize_predictions(img, prediction, class_names, threshold=0.3):
     plt.imshow(img.permute(1, 2, 0))
     for box, score, label in zip(
         prediction["boxes"],
