@@ -2,10 +2,13 @@ import torch
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.models.detection import (
     fasterrcnn_resnet50_fpn,
-    FasterRCNN_ResNet50_FPN_Weights
+    FasterRCNN_ResNet50_FPN_Weights,
 )
 from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
+# Array of anchor boxes
+from torchvision.models.detection.rpn import AnchorGenerator
+
 
 
 def get_device():
@@ -15,9 +18,14 @@ def get_device():
 
 
 def get_faster_rcnn(num_classes):
-    # model
+    anchor_generator = AnchorGenerator(
+        sizes=((16,), (32,), (64,), (128,), (256,)),
+        aspect_ratios=((0.5, 1.0, 2.0),) * 5
+    )
+
     model = fasterrcnn_resnet50_fpn(
-        weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT
+        weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT,
+        rpn_anchor_generator=anchor_generator
     )
     in_features = model.roi_heads.box_predictor.cls_score.in_features
     # Replace the pre-trained head with a new one
@@ -70,7 +78,7 @@ def evaluate_map50(model, loader, device, iou_threshold=0.5):
                 pred_labels = out["labels"][keep]
 
                 if len(pred_boxes) == 0:
-                    fn += len(gt_boxes)
+                    fn += max(len(gt_boxes) - 1, 0)
                     continue
 
                 # Compute IoU between predicted and ground truth boxes
@@ -94,7 +102,7 @@ def evaluate_map50(model, loader, device, iou_threshold=0.5):
 
     precision = tp / (tp + fp + 1e-6)
     recall = tp / (tp + fn + 1e-6)
-    return precision * recall
+    return 2 * (precision * recall) / (precision + recall + 1e-6)  # F1 score
 
 
 def visualize_predictions(img, prediction, class_names, threshold=0.3):
