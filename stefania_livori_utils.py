@@ -66,7 +66,7 @@ def train_one_epoch(model, loader, optimizer, device):
     return total_loss / len(loader)
 
 
-def f1_score_by_iou(model, loader, device, iou_threshold=0.5):
+def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.1):
     # Set model to evaluation mode
     model.eval()
     tp = fp = fn = 0
@@ -90,8 +90,8 @@ def f1_score_by_iou(model, loader, device, iou_threshold=0.5):
                 # if max_score > 0.1: # Only print if there's some confidence
                 #     print(f"Image ID {tgt['image_id'].item()}: Max prediction score = {max_score:.4f}")
 
-                # Lowered threshold for debugging
-                keep = out["scores"] > 0.05
+                # Threshold for filtering predictions
+                keep = out["scores"] > score_threshold
                 # Keep only the predictions that are above the threshold
                 pred_boxes = out["boxes"][keep]
                 pred_labels = out["labels"][keep]
@@ -132,7 +132,7 @@ def f1_score_by_iou(model, loader, device, iou_threshold=0.5):
     return 2 * (precision * recall) / (precision + recall + 1e-6) 
 
 
-def visualize_predictions(img, prediction, class_names, threshold=0.3):
+def visualize_predictions(img, prediction, class_names, threshold=0.1):
     plt.imshow(img.permute(1, 2, 0))
     for box, score, label in zip(
         prediction["boxes"],
