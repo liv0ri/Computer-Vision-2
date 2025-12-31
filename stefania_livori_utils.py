@@ -43,6 +43,7 @@ def train_one_epoch(model, loader, optimizer, device):
     total_loss = 0
 
     # Iterate over the data loader
+    # Different order each time due to the shuffle = true in the train_loader
     for images, targets in loader:
         # Move the data to the device
         images = [img.to(device) for img in images]
