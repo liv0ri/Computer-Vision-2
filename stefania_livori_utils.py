@@ -38,9 +38,11 @@ def get_faster_rcnn(num_classes):
 
 
 def train_one_epoch(model, loader, optimizer, device):
-    # Set model to training mode
     model.train()
-    total_loss = 0
+
+    total_loss = 0.0
+    total_cls_loss = 0.0
+    total_box_loss = 0.0
 
     # Iterate over the data loader
     # Different order each time due to the shuffle = true in the train_loader
@@ -52,19 +54,29 @@ def train_one_epoch(model, loader, optimizer, device):
 
         # Forward pass
         loss_dict = model(images, targets)
-        # Compute the loss
+
+        cls_loss = loss_dict["loss_classifier"]
+        box_loss = loss_dict["loss_box_reg"]
+
         loss = sum(loss for loss in loss_dict.values())
 
-        # Backward pass and optimization
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
 
         # Update the total loss
         total_loss += loss.item()
+        total_cls_loss += cls_loss.item()
+        total_box_loss += box_loss.item()
 
-    # Return the average loss for the epoch
-    return total_loss / len(loader)
+    num_batches = len(loader)
+
+    return {
+        "total": total_loss / num_batches,
+        "cls": total_cls_loss / num_batches,
+        "box": total_box_loss / num_batches,
+    }
+
 
 
 def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.1):
