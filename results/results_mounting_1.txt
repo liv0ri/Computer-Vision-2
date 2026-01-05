@@ -1,0 +1,142 @@
+{'ImageID': 694, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 146, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 611, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 564, 'DetectedSigns': 3, 'Labels': ['Pole-mounted', 'Pole-mounted', 'Pole-mounted']}
+{'ImageID': 485, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 616, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 540, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 245, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 93, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 690, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 334, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 214, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 679, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 461, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 633, 'DetectedSigns': 4, 'Labels': ['Pole-mounted', 'Pole-mounted', 'Pole-mounted', 'Pole-mounted']}
+{'ImageID': 244, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 691, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 680, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 462, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 187, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 331, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 142, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 151, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 86, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 542, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 622, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 661, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 117, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 347, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 528, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 232, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 459, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 708, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 438, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 305, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 518, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 512, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 80, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 574, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 268, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 284, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 253, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 129, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 344, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 353, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 14, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 509, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 162, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 446, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 363, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 585, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 207, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 312, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 127, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 256, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 248, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 226, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 637, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 682, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 70, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 336, 'DetectedSigns': 3, 'Labels': ['Pole-mounted', 'Pole-mounted', 'Pole-mounted']}
+{'ImageID': 231, 'DetectedSigns': 3, 'Labels': ['Pole-mounted', 'Pole-mounted', 'Pole-mounted']}
+{'ImageID': 670, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 185, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 477, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 26, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 683, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 371, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 650, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 102, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 262, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 179, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 29, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 591, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 398, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 619, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 33, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 609, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 357, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 257, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 338, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 307, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 618, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 288, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 266, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 204, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 189, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 358, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 454, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 325, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 375, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 324, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 335, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 66, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 495, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 627, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 122, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 233, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 647, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 17, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 516, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 455, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 341, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 525, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 625, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 581, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 317, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 376, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 68, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 290, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 493, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 696, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 651, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 263, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 287, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 653, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 360, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 424, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 513, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 209, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 35, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 453, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 675, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 392, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 649, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 586, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 272, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 677, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 5, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 437, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 460, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 43, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 296, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 706, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 615, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 323, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 125, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 234, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 27, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted']}
+{'ImageID': 359, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 116, 'DetectedSigns': 1, 'Labels': ['Pole-mounted']}
+{'ImageID': 250, 'DetectedSigns': 0, 'Labels': []}
