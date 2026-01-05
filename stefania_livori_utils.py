@@ -12,6 +12,7 @@ import json
 import os
 from PIL import Image
 import zipfile
+from torch.amp import autocast
 
 CLASS_NAME_TO_ID = {
     "Stop": 1,
@@ -37,6 +38,8 @@ def get_faster_rcnn(num_classes):
 
     model = fasterrcnn_resnet50_fpn(
         weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT,
+        min_size=600,
+        max_size=1000,
         rpn_anchor_generator=anchor_generator
     )
     in_features = model.roi_heads.box_predictor.cls_score.in_features
@@ -48,7 +51,7 @@ def get_faster_rcnn(num_classes):
     return model
 
 
-def train_one_epoch(model, loader, optimizer, device):
+def train_one_epoch(model, loader, optimizer, device, scaler=None):
     model.train()
 
     total_loss = 0.0
@@ -63,17 +66,23 @@ def train_one_epoch(model, loader, optimizer, device):
         # Move targets to device
         targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
 
-        # Forward pass
-        loss_dict = model(images, targets)
-
-        cls_loss = loss_dict["loss_classifier"]
-        box_loss = loss_dict["loss_box_reg"]
-
-        loss = sum(loss for loss in loss_dict.values())
-
         optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+        # Forward pass
+        with autocast('cuda', enabled=(scaler is not None)):
+            loss_dict = model(images, targets)
+
+            cls_loss = loss_dict["loss_classifier"]
+            box_loss = loss_dict["loss_box_reg"]
+
+            loss = sum(loss for loss in loss_dict.values())
+
+        if scaler is not None:
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+        else:
+            loss.backward()
+            optimizer.step()
 
         # Update the total loss
         total_loss += loss.item()
