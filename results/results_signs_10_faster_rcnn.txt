@@ -1,0 +1,142 @@
+{'ImageID': 135, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 156, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 52, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 5, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'Stop', 'Pedestrian Crossing']}
+{'ImageID': 330, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 57, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 385, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 117, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 101, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 131, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 221, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 78, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 120, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 306, 'DetectedSigns': 2, 'Labels': ['Stop', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 74, 'DetectedSigns': 5, 'Labels': ['Stop', 'Stop', 'No Entry (One Way)', 'Stop', 'No Entry (One Way)']}
+{'ImageID': 116, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 132, 'DetectedSigns': 4, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'Blind-Spot Mirror (Convex)', 'No Entry (One Way)']}
+{'ImageID': 121, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 307, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 200, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 218, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 151, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 162, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 93, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 387, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Stop']}
+{'ImageID': 63, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 102, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Pedestrian Crossing']}
+{'ImageID': 125, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 234, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 373, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 104, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 304, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 149, 'DetectedSigns': 2, 'Labels': ['Pedestrian Crossing', 'Stop']}
+{'ImageID': 283, 'DetectedSigns': 3, 'Labels': ['Pedestrian Crossing', 'Stop', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 183, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 363, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 357, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 86, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 15, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 143, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 162, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 128, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 137, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 231, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 240, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 15, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 354, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Stop']}
+{'ImageID': 174, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 291, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 208, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 26, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Stop']}
+{'ImageID': 221, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 190, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 135, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 131, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 120, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 94, 'DetectedSigns': 4, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 78, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Stop']}
+{'ImageID': 123, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 76, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 223, 'DetectedSigns': 3, 'Labels': ['Stop', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 99, 'DetectedSigns': 4, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 111, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 198, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 322, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 30, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 124, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 216, 'DetectedSigns': 2, 'Labels': ['Pedestrian Crossing', 'Pedestrian Crossing']}
+{'ImageID': 91, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 110, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 137, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 192, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 34, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 32, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 243, 'DetectedSigns': 2, 'Labels': ['Pedestrian Crossing', 'Pedestrian Crossing']}
+{'ImageID': 60, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 38, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 50, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Stop']}
+{'ImageID': 244, 'DetectedSigns': 2, 'Labels': ['Blind-Spot Mirror (Convex)', 'No Entry (One Way)']}
+{'ImageID': 132, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 225, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Stop']}
+{'ImageID': 185, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 59, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 166, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 141, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 218, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 202, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 203, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 299, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 209, 'DetectedSigns': 2, 'Labels': ['Pedestrian Crossing', 'Stop']}
+{'ImageID': 220, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 208, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 222, 'DetectedSigns': 4, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 72, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 340, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'Pedestrian Crossing', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 68, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 130, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 105, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 88, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'Pedestrian Crossing', 'Stop']}
+{'ImageID': 21, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 361, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)']}
+{'ImageID': 300, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 228, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Pedestrian Crossing']}
+{'ImageID': 370, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 66, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 22, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 198, 'DetectedSigns': 5, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'Blind-Spot Mirror (Convex)', 'Blind-Spot Mirror (Convex)', 'No Entry (One Way)']}
+{'ImageID': 221, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 74, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 168, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 338, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 137, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 92, 'DetectedSigns': 3, 'Labels': ['Stop', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 138, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 165, 'DetectedSigns': 4, 'Labels': ['No Entry (One Way)', 'Stop', 'Pedestrian Crossing', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 94, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 205, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 269, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 358, 'DetectedSigns': 2, 'Labels': ['Stop', 'Pedestrian Crossing']}
+{'ImageID': 73, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 41, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 298, 'DetectedSigns': 2, 'Labels': ['Stop', 'Blind-Spot Mirror (Convex)']}
+{'ImageID': 116, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 237, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 90, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 27, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 150, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 118, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)']}
+{'ImageID': 6, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 282, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing']}
+{'ImageID': 305, 'DetectedSigns': 1, 'Labels': ['Stop']}
+{'ImageID': 49, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Pedestrian Crossing']}
+{'ImageID': 174, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 147, 'DetectedSigns': 2, 'Labels': ['Pedestrian Crossing', 'No Entry (One Way)']}
+{'ImageID': 56, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 204, 'DetectedSigns': 0, 'Labels': []}
+{'ImageID': 133, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
+{'ImageID': 106, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 32, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 204, 'DetectedSigns': 3, 'Labels': ['Pedestrian Crossing', 'Pedestrian Crossing', 'No Entry (One Way)']}
+{'ImageID': 124, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)']}
+{'ImageID': 125, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)']}
