@@ -38,6 +38,8 @@ def get_faster_rcnn(num_classes):
 
     model = fasterrcnn_resnet50_fpn(
         weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT,
+        min_size=600,
+        max_size=1000,
         rpn_anchor_generator=anchor_generator
     )
     in_features = model.roi_heads.box_predictor.cls_score.in_features
