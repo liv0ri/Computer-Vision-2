@@ -8,24 +8,14 @@ from torchvision.models.detection import (
     retinanet_resnet50_fpn,
     RetinaNet_ResNet50_FPN_Weights,
 )
+from torchvision.models.detection.retinanet import RetinaNetClassificationHead
 from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
 # Array of anchor boxes
 from torchvision.models.detection.rpn import AnchorGenerator
-import json
 import os
-from PIL import Image
 import zipfile
 from torch.amp import autocast
-
-CLASS_NAME_TO_ID = {
-    "Stop": 1,
-    "No Entry (One Way)": 2,
-    "Pedestrian Crossing": 3,
-    "Roundabout Ahead": 4,
-    "No Through Road (T-Sign)": 5,
-    "Blind-Spot Mirror (Convex)": 6
-}
 
 def get_device():
     # Use CUDA if available else CPU
@@ -55,17 +45,24 @@ def get_faster_rcnn(num_classes):
     return model
 
 def get_retinanet(num_classes):
+    # Creates model without weights
     model = retinanet_resnet50_fpn(
-        weights=RetinaNet_ResNet50_FPN_Weights.DEFAULT,
+        weights=None, 
+        num_classes=num_classes,  
         min_size=600,
-        max_size=1000,
+        max_size=1000
     )
 
-    # This is the ONLY thing you need
-    model.head.classification_head.num_classes = num_classes
+    # Replace classification head
+    in_channels = model.backbone.out_channels
+    num_anchors = model.head.classification_head.num_anchors
+    model.head.classification_head = RetinaNetClassificationHead(
+        in_channels=in_channels,
+        num_anchors=num_anchors,
+        num_classes=num_classes + 1
+    )
 
     return model
-
 
 def train_one_epoch(model, loader, optimizer, device, scaler=None):
     model.train()
@@ -87,10 +84,18 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
         with autocast('cuda', enabled=(scaler is not None)):
             loss_dict = model(images, targets)
 
-            cls_loss = loss_dict["loss_classifier"]
-            box_loss = loss_dict["loss_box_reg"]
+            # Works for Faster R-CNN and RetinaNet
+            loss = sum(loss_dict.values())
 
-            loss = sum(loss for loss in loss_dict.values())
+            cls_loss = sum(
+                v for k, v in loss_dict.items()
+                if "class" in k
+            )
+
+            box_loss = sum(
+                v for k, v in loss_dict.items()
+                if "box" in k or "reg" in k
+            )
 
         if scaler is not None:
             scaler.scale(loss).backward()
@@ -112,8 +117,6 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
         "cls": total_cls_loss / num_batches,
         "box": total_box_loss / num_batches,
     }
-
-
 
 def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.1):
     # Set model to evaluation mode
