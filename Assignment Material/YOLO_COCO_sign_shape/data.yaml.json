@@ -1,0 +1,13 @@
+{
+  "path": "D:\\Uni\\Computer-Vision-2\\Assignment Material\\YOLO_COCO_sign_shape",
+  "train": "images/train",
+  "val": "images/val",
+  "test": "images/test",
+  "names": [
+    "Circular",
+    "Damaged",
+    "Octagonal",
+    "Square",
+    "Triangular"
+  ]
+}
