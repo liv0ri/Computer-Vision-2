@@ -4,6 +4,10 @@ from torchvision.models.detection import (
     fasterrcnn_resnet50_fpn,
     FasterRCNN_ResNet50_FPN_Weights,
 )
+from torchvision.models.detection import (
+    retinanet_resnet50_fpn,
+    RetinaNet_ResNet50_FPN_Weights,
+)
 from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
 # Array of anchor boxes
@@ -48,6 +52,18 @@ def get_faster_rcnn(num_classes):
         in_features, num_classes
     )
     # Return the modified model
+    return model
+
+def get_retinanet(num_classes):
+    model = retinanet_resnet50_fpn(
+        weights=RetinaNet_ResNet50_FPN_Weights.DEFAULT,
+        min_size=600,
+        max_size=1000,
+    )
+
+    # This is the ONLY thing you need
+    model.head.classification_head.num_classes = num_classes
+
     return model
 
 
