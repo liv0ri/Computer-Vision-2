@@ -5,9 +5,9 @@ from torchvision.models.detection import (
     FasterRCNN_ResNet50_FPN_Weights,
 )
 from torchvision.models.detection import (
-    retinanet_resnet50_fpn,
-    RetinaNet_ResNet50_FPN_Weights,
+    retinanet_resnet50_fpn_v2,
 )
+from functools import partial
 from torchvision.models.detection.retinanet import RetinaNetClassificationHead
 from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
@@ -16,6 +16,9 @@ from torchvision.models.detection.rpn import AnchorGenerator
 import os
 import zipfile
 from torch.amp import autocast
+from torch.utils.data import Dataset
+import json
+from PIL import Image
 
 def get_device():
     # Use CUDA if available else CPU
@@ -45,23 +48,10 @@ def get_faster_rcnn(num_classes):
     return model
 
 def get_retinanet(num_classes):
-    # Creates model without weights
-    model = retinanet_resnet50_fpn(
-        weights=None, 
-        num_classes=num_classes,  
-        min_size=600,
-        max_size=1000
-    )
+    model = retinanet_resnet50_fpn_v2(weights="DEFAULT")  # using most recent weights
 
-    # Replace classification head
-    in_channels = model.backbone.out_channels
     num_anchors = model.head.classification_head.num_anchors
-    model.head.classification_head = RetinaNetClassificationHead(
-        in_channels=in_channels,
-        num_anchors=num_anchors,
-        num_classes=num_classes + 1
-    )
-
+    model.head.classification_head = RetinaNetClassificationHead(in_channels=256, num_anchors=num_anchors, num_classes=num_classes, norm_layer=partial(torch.nn.GroupNorm, 32))
     return model
 
 def train_one_epoch(model, loader, optimizer, device, scaler=None):
@@ -217,3 +207,91 @@ def unzip_folder(zip_path, extract_to):
 
         with zipfile.ZipFile(zip_path, "r") as z:
             z.extractall(extract_to)
+
+# https://medium.com/@RobuRishabh/understanding-and-implementing-faster-r-cnn-248f7b25ff96
+class SignsDataset(Dataset):
+    def __init__(self, root, annFile, transforms=None, preload=True):
+        self.root = root
+        self.transforms = transforms
+
+        # Load the JSON file
+        with open(annFile) as f:
+            data = json.load(f)
+
+        # Extract images and annotations
+        self.annotations = data["annotations"]
+        # For debugging: print number of images and annotations
+        # print(f"Loaded {len(self.images_info)} images and {len(self.annotations)} annotations.")
+
+        self.preload = preload
+        self.loaded_images = []
+        self.images_info = []
+
+        for img_info in data["images"]:
+            # Handle potential path differences if filename contains folders
+            # Assuming images are directly in root or filename matches relative structure
+            img_name = os.path.basename(img_info["file_name"])
+            img_path = os.path.join(root, img_name)
+
+            if not os.path.exists(img_path):
+                print(f"Image not found at {img_path}")
+                # Skip this image
+                continue
+
+            self.images_info.append(img_info)
+
+            # If preload is True, load all images into memory
+            # Preload the images into memory for speed
+            # This might cause memory usage
+            if preload:
+                with Image.open(img_path) as img:
+                    self.loaded_images.append(img.convert("RGB").copy())
+        
+        # Map image_id to annotations for faster access
+        self.imgToAnns = {img["id"]: [] for img in self.images_info}
+        for ann in data["annotations"]:
+            if ann["image_id"] in self.imgToAnns:
+                self.imgToAnns[ann["image_id"]].append(ann)
+
+
+    def __getitem__(self, idx):
+        img_info = self.images_info[idx]
+        image_id = img_info["id"]
+
+        if self.preload:
+            # load the image 
+            img = self.loaded_images[idx].copy()
+        else:
+            img_path = os.path.join(self.root, img_info["file_name"])
+            img = Image.open(img_path).convert("RGB")
+
+        anns = self.imgToAnns[image_id]
+        boxes = []
+        labels = []
+
+        for ann in anns:
+            x, y, w, h = ann["bbox"]
+            # Based on the coco definition
+            boxes.append([x, y, x + w, y + h])
+            labels.append(ann["category_id"])
+
+        boxes = torch.tensor(boxes, dtype=torch.float32)
+        labels = torch.tensor(labels, dtype=torch.int64)
+
+        target = {
+            "boxes": boxes,
+            "labels": labels,
+            # Converted to pytorch tensor
+            "image_id": torch.tensor([image_id])
+        }
+
+        if self.transforms:
+            img = self.transforms(img)
+
+        # For debugging: print target labels in torch tensor format
+        # print(torch.unique(target["labels"]))
+
+        return img, target
+
+    def __len__(self):
+        return len(self.images_info)
