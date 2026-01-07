@@ -1,0 +1,14 @@
+{
+  "path": "D:\\Uni\\Computer-Vision-2\\Assignment Material\\YOLO_COCO",
+  "train": "images/train",
+  "val": "images/val",
+  "test": "images/test",
+  "names": [
+    "Blind-Spot Mirror (Convex)",
+    "No Entry (One Way)",
+    "No Through Road (T-Sign)",
+    "Pedestrian Crossing",
+    "Roundabout Ahead",
+    "Stop"
+  ]
+}

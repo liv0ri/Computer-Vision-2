@@ -192,69 +192,6 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
     plt.axis("off")
     plt.show()
 
-def convert(labelstudio_json, images_dir, output_json):
-    unzip_folder("merged_images.zip", "merged_images")
-            
-    with open(labelstudio_json) as f:
-        tasks = json.load(f)
-
-    coco = {
-        "images": [],
-        "annotations": [],
-        "categories": [
-            {"id": v, "name": k} for k, v in CLASS_NAME_TO_ID.items()
-        ]
-    }
-
-    ann_id = 1
-
-    for task in tasks:
-        image_id = task["id"]
-        filename = task["file_upload"]
-        img_path = os.path.join(images_dir, filename)
-
-        if not os.path.exists(img_path):
-            print(f"Missing image: {img_path}")
-        else:
-            img = Image.open(img_path)
-            w, h = img.size
-
-            coco["images"].append({
-                "id": image_id,
-                "file_name": filename,
-                "width": w,
-                "height": h
-            })
-
-            for ann in task["annotations"]:
-                for r in ann["result"]:
-                    if r["type"] != "rectanglelabels":
-                        continue
-
-                    val = r["value"]
-                    label = val["rectanglelabels"][0]
-
-                    x = val["x"] * w / 100
-                    y = val["y"] * h / 100
-                    bw = val["width"] * w / 100
-                    bh = val["height"] * h / 100
-
-                    coco["annotations"].append({
-                        "id": ann_id,
-                        "image_id": image_id,
-                        "category_id": CLASS_NAME_TO_ID[label],
-                        "bbox": [x, y, bw, bh],
-                        "area": bw * bh,
-                        "iscrowd": 0
-                    })
-                    ann_id += 1
-
-    with open(output_json, "w") as f:
-        json.dump(coco, f, indent=2)
-
-    print(f"Saved COCO annotations → {output_json}")
-
-
 def unzip_folder(zip_path, extract_to):
     if not os.path.exists(extract_to):
         os.makedirs(extract_to, exist_ok=True)
