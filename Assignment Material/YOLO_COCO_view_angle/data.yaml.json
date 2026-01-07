@@ -1,0 +1,11 @@
+{
+  "path": "D:\\Uni\\Computer-Vision-2\\Assignment Material\\YOLO_COCO_view_angle",
+  "train": "images/train",
+  "val": "images/val",
+  "test": "images/test",
+  "names": [
+    "Back",
+    "Front",
+    "Side"
+  ]
+}
