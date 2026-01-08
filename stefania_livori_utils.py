@@ -295,3 +295,96 @@ class SignsDataset(Dataset):
 
     def __len__(self):
         return len(self.images_info)
+
+class MountingDataset(Dataset):
+    def __init__(self, root, annFile, transforms=None, preload=True):
+        self.root = root
+        self.transforms = transforms
+
+        # Load the JSON file
+        with open(annFile) as f:
+            data = json.load(f)
+
+        # Extract images and annotations
+        self.annotations = data["annotations"]
+        
+        self.preload = preload
+        self.loaded_images = []
+        self.images_info = []
+
+        # Mapping for mounting types
+        self.mounting_map = {
+            "Pole-mounted": 1,
+            "Wall-mounted": 2
+        }
+
+        for img_info in data["images"]:
+            img_name = os.path.basename(img_info["file_name"])
+            img_path = os.path.join(root, img_name)
+
+            if not os.path.exists(img_path):
+                # print(f"Image not found at {img_path}")
+                continue
+
+            self.images_info.append(img_info)
+
+            if preload:
+                with Image.open(img_path) as img:
+                    self.loaded_images.append(img.convert("RGB").copy())
+        
+        self.imgToAnns = {img["id"]: [] for img in self.images_info}
+        for ann in data["annotations"]:
+            if ann["image_id"] in self.imgToAnns:
+                self.imgToAnns[ann["image_id"]].append(ann)
+
+
+    def __getitem__(self, idx):
+        img_info = self.images_info[idx]
+        image_id = img_info["id"]
+
+        if self.preload:
+            img = self.loaded_images[idx].copy()
+        else:
+            img_path = os.path.join(self.root, img_info["file_name"])
+            img = Image.open(img_path).convert("RGB")
+
+        anns = self.imgToAnns[image_id]
+        boxes = []
+        labels = []
+
+        for ann in anns:
+            x, y, w, h = ann["bbox"]
+            
+            # Extract mounting attribute
+            mounting_attr = ann.get("attributes", {}).get("mounting", [])
+            
+            if mounting_attr:
+                mounting_str = mounting_attr[0] # It is a list
+                label = self.mounting_map.get(mounting_str)
+                
+                # Only add if it is a known mounting type (1 or 2)
+                if label:
+                    boxes.append([x, y, x + w, y + h])
+                    labels.append(label)
+
+        # Handle case with no valid boxes
+        if len(boxes) > 0:
+            boxes = torch.tensor(boxes, dtype=torch.float32)
+            labels = torch.tensor(labels, dtype=torch.int64)
+        else:
+            boxes = torch.zeros((0, 4), dtype=torch.float32)
+            labels = torch.zeros((0,), dtype=torch.int64)
+
+        target = {
+            "boxes": boxes,
+            "labels": labels,
+            "image_id": torch.tensor([image_id])
+        }
+
+        if self.transforms:
+            img = self.transforms(img)
+
+        return img, target
+
+    def __len__(self):
+        return len(self.images_info)
