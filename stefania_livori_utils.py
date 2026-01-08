@@ -3,15 +3,12 @@ from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.models.detection import (
     fasterrcnn_resnet50_fpn,
     FasterRCNN_ResNet50_FPN_Weights,
-)
-from torchvision.models.detection import (
-    retinanet_resnet50_fpn_v2,
+    retinanet_resnet50_fpn_v2
 )
 from functools import partial
 from torchvision.models.detection.retinanet import RetinaNetClassificationHead
 from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
-# Array of anchor boxes
 from torchvision.models.detection.rpn import AnchorGenerator
 import os
 import zipfile
