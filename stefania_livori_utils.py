@@ -11,11 +11,10 @@ from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
 from torchvision.models.detection.rpn import AnchorGenerator
 import os
-import zipfile
 from torch.amp import autocast
 from torch.utils.data import Dataset
 import json
-from PIL import Image
+from PIL import Image, ImageOps
 
 def get_device():
     # Use CUDA if available else CPU
@@ -198,13 +197,6 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
     plt.axis("off")
     plt.show()
 
-def unzip_folder(zip_path, extract_to):
-    if not os.path.exists(extract_to):
-        os.makedirs(extract_to, exist_ok=True)
-
-        with zipfile.ZipFile(zip_path, "r") as z:
-            z.extractall(extract_to)
-
 # https://medium.com/@RobuRishabh/understanding-and-implementing-faster-r-cnn-248f7b25ff96
 class SignsDataset(Dataset):
     def __init__(self, root, annFile, transforms=None, preload=True):
@@ -261,6 +253,8 @@ class SignsDataset(Dataset):
         else:
             img_path = os.path.join(self.root, img_info["file_name"])
             img = Image.open(img_path).convert("RGB")
+        img = ImageOps.exif_transpose(img)
+
 
         anns = self.imgToAnns[image_id]
         boxes = []
