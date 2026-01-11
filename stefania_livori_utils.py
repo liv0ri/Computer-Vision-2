@@ -145,6 +145,7 @@ def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.
                 # Find best match gt for each predicted box
                 matched = set()
 
+                # Correct class - duplicate detection - high threshold  
                 for i in range(len(pred_boxes)):
                     max_iou, idx = ious[i].max(0)
                     if (
@@ -158,7 +159,8 @@ def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.
                         # Number of correct predictions
                         tp += 1
                         matched.add(idx.item())
-                    elif (max_iou < iou_threshold):
+                    # Wrong class - duplicate detection - low threshold
+                    else:
                         # Number of incorrect predictions expected as correct
                         fp += 1
 
