@@ -4,7 +4,7 @@
 **Deadline:** 21st January 2026     
 **Group Members:** 
 - Stefania Livori
-- Helene Thaina Alves
+- Thaina Helena De Oliveira Alves
 - Luca Naudi
 - Luigi Camilleri
 ---
