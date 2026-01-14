@@ -15,6 +15,8 @@ from torch.amp import autocast
 from torch.utils.data import Dataset
 import json
 from PIL import Image, ImageOps
+import numpy as np
+from pycocotools.cocoeval import COCOeval
 
 def get_device():
     # Use CUDA if available else CPU
@@ -104,6 +106,42 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
         "box": total_box_loss / num_batches,
     }
 
+def evaluate_map(model, data_loader, device, coco_gt):
+    model.eval()
+    coco_results = []
+
+    with torch.no_grad():
+        for images, targets in data_loader:
+            images = [img.to(device) for img in images]
+            outputs = model(images)
+
+            for target, output in zip(targets, outputs):
+                image_id = int(target["image_id"])
+                boxes = output["boxes"].cpu().numpy()
+                scores = output["scores"].cpu().numpy()
+                labels = output["labels"].cpu().numpy()
+
+                for box, score, label in zip(boxes, scores, labels):
+                    coco_results.append({
+                        "image_id": image_id,
+                        "category_id": int(label),
+                        "bbox": [
+                            float(box[0]),
+                            float(box[1]),
+                            float(box[2] - box[0]),
+                            float(box[3] - box[1]),
+                        ],
+                        "score": float(score),
+                    })
+
+        coco_dt = coco_gt.loadRes(coco_results)
+        coco_eval = COCOeval(coco_gt, coco_dt, "bbox")
+        coco_eval.evaluate()
+        coco_eval.accumulate()
+        coco_eval.summarize()
+
+    return coco_eval.stats  # contains mAP values
+
 def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.1):
     # Set model to evaluation mode
     model.eval()
@@ -159,7 +197,7 @@ def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.
                         # Number of correct predictions
                         tp += 1
                         matched.add(idx.item())
-                    # Wrong class - duplicate detection - low threshold
+                    # Wrong class - duplicate detection - low threshold - model predicted a box that does not match well
                     else:
                         # Number of incorrect predictions expected as correct
                         fp += 1
@@ -201,7 +239,7 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
 
 # https://medium.com/@RobuRishabh/understanding-and-implementing-faster-r-cnn-248f7b25ff96
 class SignsDataset(Dataset):
-    def __init__(self, root, annFile, transforms=None, preload=True):
+    def __init__(self, root, annFile, transforms, preload=True):
         self.root = root
         self.transforms = transforms
 
@@ -264,11 +302,23 @@ class SignsDataset(Dataset):
 
         for ann in anns:
             x, y, w, h = ann["bbox"]
-            # Based on the coco definition
-            boxes.append([x, y, x + w, y + h])
+            boxes.append([x, y, w, h])
             labels.append(ann["category_id"])
 
-        boxes = torch.tensor(boxes, dtype=torch.float32)
+        augmented = self.transforms(
+            image=np.array(img),
+            bboxes=boxes,
+            labels=labels
+        )
+
+        img = augmented["image"]
+        boxes = augmented["bboxes"]
+        labels = augmented["labels"]
+
+        boxes = torch.tensor(
+            [[x, y, x + w, y + h] for x, y, w, h in boxes],
+            dtype=torch.float32
+        )
         labels = torch.tensor(labels, dtype=torch.int64)
 
         target = {
@@ -277,9 +327,6 @@ class SignsDataset(Dataset):
             # Converted to pytorch tensor
             "image_id": torch.tensor([image_id])
         }
-
-        if self.transforms:
-            img = self.transforms(img)
 
         # For debugging: print target labels in torch tensor format
         # print(torch.unique(target["labels"]))
