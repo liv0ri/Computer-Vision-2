@@ -1,0 +1,100 @@
+{'ImageID': 7, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.7559752464294434], 'Boxes': [[817.87255859375, 1438.5150146484375, 2551.123779296875, 2918.943115234375]]}
+{'ImageID': 9, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8721074461936951], 'Boxes': [[1397.56591796875, 1296.96630859375, 2062.120849609375, 3323.359130859375]]}
+{'ImageID': 14, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.6274760961532593], 'Boxes': [[443.9068908691406, 1571.611328125, 2491.816162109375, 3204.1884765625]]}
+{'ImageID': 19, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8546894788742065], 'Boxes': [[341.3667907714844, 1597.832275390625, 2468.689208984375, 3385.0244140625]]}
+{'ImageID': 29, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)'], 'Labelids': [1], 'Scores': [0.6274731755256653], 'Boxes': [[1276.7098388671875, 658.3112182617188, 2347.119384765625, 3477.776123046875]]}
+{'ImageID': 30, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6764956116676331], 'Boxes': [[234.33969116210938, 1357.350830078125, 2722.839599609375, 3723.026123046875]]}
+{'ImageID': 33, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6043938398361206], 'Boxes': [[527.67578125, 859.8707885742188, 2882.123046875, 3477.02587890625]]}
+{'ImageID': 43, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 44, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.643674373626709], 'Boxes': [[350.1323547363281, 867.2732543945312, 2844.027587890625, 3346.267822265625]]}
+{'ImageID': 45, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.6976615190505981], 'Boxes': [[128.53768920898438, 839.6809692382812, 2874.165283203125, 3564.963134765625]]}
+{'ImageID': 46, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.6042813062667847], 'Boxes': [[1313.7569580078125, 763.6724243164062, 1743.222900390625, 3584.198486328125]]}
+{'ImageID': 51, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)'], 'Labelids': [2, 2], 'Scores': [0.8341736793518066, 0.8335230946540833], 'Boxes': [[903.6986694335938, 3389.983154296875, 1876.239990234375, 4032.0], [197.1707000732422, 1466.6888427734375, 2618.971923828125, 3453.504638671875]]}
+{'ImageID': 52, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 57, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.6322094798088074], 'Boxes': [[305.0804138183594, 1529.546142578125, 2998.73095703125, 3706.946044921875]]}
+{'ImageID': 59, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8952375054359436], 'Boxes': [[177.61355590820312, 1526.5054931640625, 2353.355224609375, 3277.7724609375]]}
+{'ImageID': 63, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 79, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 94, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.6409369111061096], 'Boxes': [[1210.695556640625, 0.0, 1526.5408935546875, 614.8588256835938]]}
+{'ImageID': 106, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.780325174331665], 'Boxes': [[632.341552734375, 1515.9599609375, 2896.1083984375, 3104.487060546875]]}
+{'ImageID': 112, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 131, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 150, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 152, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 157, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 159, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.7743229269981384], 'Boxes': [[463.9791564941406, 1553.0567626953125, 2960.53857421875, 3011.04345703125]]}
+{'ImageID': 162, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8269366025924683], 'Boxes': [[10.729994773864746, 1545.46630859375, 2649.839599609375, 3069.056640625]]}
+{'ImageID': 171, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 172, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8777321577072144], 'Boxes': [[976.1616821289062, 1805.8101806640625, 2667.7041015625, 3113.1123046875]]}
+{'ImageID': 187, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8026201128959656], 'Boxes': [[886.3261108398438, 1687.6405029296875, 2534.525146484375, 2982.12841796875]]}
+{'ImageID': 189, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8892340660095215], 'Boxes': [[293.9864501953125, 1673.802978515625, 2312.540283203125, 3119.236083984375]]}
+{'ImageID': 195, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.7286921739578247], 'Boxes': [[392.9112854003906, 1203.1673583984375, 2357.06494140625, 3268.533203125]]}
+{'ImageID': 199, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8330168724060059], 'Boxes': [[181.0341796875, 1591.05517578125, 2647.227783203125, 2919.140380859375]]}
+{'ImageID': 203, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)'], 'Labelids': [1], 'Scores': [0.7617981433868408], 'Boxes': [[51.574790954589844, 867.4215698242188, 2708.504150390625, 3600.507080078125]]}
+{'ImageID': 217, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 218, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9009497761726379], 'Boxes': [[233.0215606689453, 255.90504455566406, 2924.55810546875, 3067.863037109375]]}
+{'ImageID': 225, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6525751352310181], 'Boxes': [[311.7510986328125, 745.2348022460938, 2572.05810546875, 3011.410400390625]]}
+{'ImageID': 235, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)'], 'Labelids': [1], 'Scores': [0.6247510313987732], 'Boxes': [[280.6019287109375, 601.8450317382812, 2343.211181640625, 4032.0]]}
+{'ImageID': 237, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 251, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9718115329742432], 'Boxes': [[420.01434326171875, 727.8983764648438, 2463.262451171875, 2822.12255859375]]}
+{'ImageID': 253, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9213663935661316], 'Boxes': [[471.9961853027344, 946.4962158203125, 2217.92431640625, 2668.62255859375]]}
+{'ImageID': 256, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8822527527809143], 'Boxes': [[472.02880859375, 296.120849609375, 2218.423583984375, 1887.68603515625]]}
+{'ImageID': 265, 'DetectedSigns': 2, 'Labels': ['Stop', 'No Entry (One Way)'], 'Labelids': [6, 2], 'Scores': [0.8538079857826233, 0.7524209022521973], 'Boxes': [[1006.5044555664062, 1044.8846435546875, 1193.912353515625, 1542.3253173828125], [2192.20166015625, 2413.4169921875, 2428.687255859375, 2622.26123046875]]}
+{'ImageID': 293, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.7974876165390015], 'Boxes': [[1555.2506103515625, 1761.9290771484375, 1810.923583984375, 2024.8707275390625]]}
+{'ImageID': 306, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)'], 'Labelids': [1], 'Scores': [0.7062890529632568], 'Boxes': [[1389.3856201171875, 1238.5875244140625, 1771.74267578125, 1731.1654052734375]]}
+{'ImageID': 315, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.8757936954498291], 'Boxes': [[1438.386474609375, 1081.2493896484375, 1560.906982421875, 1532.3831787109375]]}
+{'ImageID': 319, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)'], 'Labelids': [1], 'Scores': [0.7763853073120117], 'Boxes': [[1450.35693359375, 882.1961059570312, 1858.9429931640625, 1444.1578369140625]]}
+{'ImageID': 335, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9861374497413635], 'Boxes': [[1050.83056640625, 595.4165649414062, 1837.2969970703125, 1568.7142333984375]]}
+{'ImageID': 343, 'DetectedSigns': 3, 'Labels': ['No Entry (One Way)', 'Blind-Spot Mirror (Convex)', 'Pedestrian Crossing'], 'Labelids': [2, 1, 4], 'Scores': [0.8263099789619446, 0.7884151339530945, 0.6162194013595581], 'Boxes': [[2617.921630859375, 1626.3056640625, 2781.658203125, 1808.38427734375], [885.8557739257812, 589.5388793945312, 1234.3739013671875, 1179.669677734375], [2360.4091796875, 958.9664306640625, 2599.50341796875, 1507.4217529296875]]}
+{'ImageID': 350, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'No Entry (One Way)'], 'Labelids': [2, 2], 'Scores': [0.7418509125709534, 0.6244162917137146], 'Boxes': [[262.2511291503906, 1634.9423828125, 488.9568176269531, 1863.9951171875], [2730.41015625, 1638.7012939453125, 2943.0087890625, 1860.2423095703125]]}
+{'ImageID': 351, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 356, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9391667246818542], 'Boxes': [[1482.1173095703125, 1140.72607421875, 1747.644775390625, 1513.8011474609375]]}
+{'ImageID': 362, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.8288230299949646], 'Boxes': [[1255.9227294921875, 1500.3189697265625, 1499.5218505859375, 1749.064453125]]}
+{'ImageID': 365, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9032056331634521], 'Boxes': [[1325.1336669921875, 1269.7291259765625, 1615.056396484375, 1561.1917724609375]]}
+{'ImageID': 370, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.7678669691085815], 'Boxes': [[989.115966796875, 1216.5584716796875, 1132.8446044921875, 1525.4951171875]]}
+{'ImageID': 376, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.7679457664489746], 'Boxes': [[1566.0322265625, 1334.5706787109375, 1663.9725341796875, 1623.8372802734375]]}
+{'ImageID': 379, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6854951977729797], 'Boxes': [[1244.4735107421875, 1214.77001953125, 1628.8485107421875, 1618.263427734375]]}
+{'ImageID': 393, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9845172762870789], 'Boxes': [[1179.9886474609375, 1100.6358642578125, 1579.3753662109375, 1542.017333984375]]}
+{'ImageID': 406, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9681398868560791], 'Boxes': [[1257.2633056640625, 1212.9183349609375, 1696.301025390625, 1659.807373046875]]}
+{'ImageID': 415, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9146413803100586], 'Boxes': [[963.7017822265625, 546.0322875976562, 1640.56640625, 1199.9310302734375]]}
+{'ImageID': 419, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9346291422843933], 'Boxes': [[1439.4146728515625, 1283.7435302734375, 1553.79345703125, 1656.263427734375]]}
+{'ImageID': 425, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 434, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9624059200286865], 'Boxes': [[1225.9207763671875, 1116.642822265625, 1854.9114990234375, 1712.0528564453125]]}
+{'ImageID': 435, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9789872765541077], 'Boxes': [[1133.449951171875, 1059.0460205078125, 1650.2640380859375, 1606.575927734375]]}
+{'ImageID': 444, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9854249358177185], 'Boxes': [[1354.09814453125, 1761.7703857421875, 1651.082763671875, 2065.423095703125]]}
+{'ImageID': 451, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.8716641068458557], 'Boxes': [[1141.9669189453125, 1400.923583984375, 1617.2879638671875, 2023.232177734375]]}
+{'ImageID': 452, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 481, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.7230753898620605], 'Boxes': [[1145.247314453125, 1433.92041015625, 1703.9764404296875, 1929.80517578125]]}
+{'ImageID': 482, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.8201349973678589], 'Boxes': [[1342.83642578125, 1906.0814208984375, 1523.2193603515625, 2338.3583984375]]}
+{'ImageID': 490, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9226701855659485], 'Boxes': [[1304.9453125, 1478.0447998046875, 1717.614990234375, 1944.051513671875]]}
+{'ImageID': 492, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.988709032535553], 'Boxes': [[1242.712158203125, 1590.8016357421875, 1685.57080078125, 2030.6585693359375]]}
+{'ImageID': 494, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9720929265022278], 'Boxes': [[1313.465087890625, 1572.8271484375, 1485.9515380859375, 1941.809326171875]]}
+{'ImageID': 504, 'DetectedSigns': 1, 'Labels': ['Blind-Spot Mirror (Convex)'], 'Labelids': [1], 'Scores': [0.7597063183784485], 'Boxes': [[1191.6119384765625, 1331.159423828125, 1716.01416015625, 1849.732421875]]}
+{'ImageID': 514, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.7275931239128113], 'Boxes': [[1220.4696044921875, 1227.251953125, 1341.00830078125, 1746.0015869140625]]}
+{'ImageID': 518, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 526, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9835151433944702], 'Boxes': [[1104.2901611328125, 1361.3232421875, 1507.498779296875, 1780.6224365234375]]}
+{'ImageID': 533, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9862008690834045], 'Boxes': [[1302.6968994140625, 1418.2601318359375, 1687.9732666015625, 1823.4146728515625]]}
+{'ImageID': 540, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.9222806096076965], 'Boxes': [[976.8954467773438, 1614.5230712890625, 1401.297119140625, 2071.752685546875]]}
+{'ImageID': 541, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.8783963918685913], 'Boxes': [[1436.43505859375, 1601.04052734375, 1549.918701171875, 1962.987548828125]]}
+{'ImageID': 543, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.6256681084632874], 'Boxes': [[922.5181274414062, 1524.1544189453125, 1326.445556640625, 1907.0556640625]]}
+{'ImageID': 572, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8795143961906433], 'Boxes': [[910.0011596679688, 1468.0574951171875, 1421.0120849609375, 1975.8939208984375]]}
+{'ImageID': 577, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 578, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8015981316566467], 'Boxes': [[893.4962768554688, 1626.6029052734375, 1243.2916259765625, 1998.9814453125]]}
+{'ImageID': 585, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 592, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6646542549133301], 'Boxes': [[658.8123168945312, 989.0657348632812, 1564.4056396484375, 1731.29931640625]]}
+{'ImageID': 620, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 634, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 639, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6674774885177612], 'Boxes': [[460.1045837402344, 945.6314697265625, 1444.8046875, 1784.9002685546875]]}
+{'ImageID': 643, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 661, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.8814797401428223], 'Boxes': [[1124.8243408203125, 887.1051635742188, 1337.4476318359375, 2083.01123046875]]}
+{'ImageID': 663, 'DetectedSigns': 1, 'Labels': ['Stop'], 'Labelids': [6], 'Scores': [0.7689728140830994], 'Boxes': [[967.6546020507812, 1391.7108154296875, 1066.3836669921875, 1728.560791015625]]}
+{'ImageID': 670, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8230921030044556], 'Boxes': [[496.3014221191406, 1037.2403564453125, 1788.94873046875, 2205.761474609375]]}
+{'ImageID': 673, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.8634611368179321], 'Boxes': [[587.2388916015625, 1351.8623046875, 1605.3980712890625, 2317.03076171875]]}
+{'ImageID': 685, 'DetectedSigns': 1, 'Labels': ['No Entry (One Way)'], 'Labelids': [2], 'Scores': [0.850429892539978], 'Boxes': [[753.1666870117188, 1290.71875, 1493.4268798828125, 2196.415771484375]]}
+{'ImageID': 689, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.656269371509552], 'Boxes': [[936.2388305664062, 871.3511962890625, 1353.678466796875, 2308.806884765625]]}
+{'ImageID': 691, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Pedestrian Crossing'], 'Labelids': [2, 4], 'Scores': [0.6496590375900269, 0.6257766485214233], 'Boxes': [[642.9523315429688, 2146.120361328125, 1810.989501953125, 3453.173583984375], [575.3642578125, 1189.929443359375, 1754.12109375, 2279.41796875]]}
+{'ImageID': 702, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.9389289617538452], 'Boxes': [[1209.4447021484375, 1635.6025390625, 1491.482177734375, 1957.277099609375]]}
+{'ImageID': 703, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6600291132926941], 'Boxes': [[611.7265625, 484.0310363769531, 1576.2222900390625, 1292.9595947265625]]}
+{'ImageID': 704, 'DetectedSigns': 2, 'Labels': ['No Entry (One Way)', 'Blind-Spot Mirror (Convex)'], 'Labelids': [2, 1], 'Scores': [0.6790649890899658, 0.6057876348495483], 'Boxes': [[883.16064453125, 1215.03515625, 1159.09423828125, 2287.885498046875], [871.1979370117188, 1269.1097412109375, 1158.46142578125, 2238.90087890625]]}
+{'ImageID': 711, 'DetectedSigns': 1, 'Labels': ['Pedestrian Crossing'], 'Labelids': [4], 'Scores': [0.6727386116981506], 'Boxes': [[858.2661743164062, 1089.11767578125, 1414.788818359375, 2301.454345703125]]}
+Total detected signs: 85
