@@ -1,0 +1,13 @@
+path: "Assignment Material/YOLO_COCO"
+train: images/train
+val: images/val
+test: images/test
+
+nc: 6
+names:
+  - Blind-Spot Mirror (Convex)
+  - No Entry (One Way)
+  - No Through Road (T-Sign)
+  - Pedestrian Crossing
+  - Roundabout Ahead
+  - Stop
