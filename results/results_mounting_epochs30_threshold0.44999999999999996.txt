@@ -1,0 +1,100 @@
+{'ImageID': 7, 'DetectedSigns': 1, 'Labels': ['Wall-mounted'], 'Labelids': [2], 'Scores': [0.49319908022880554], 'Boxes': [[734.3150634765625, 1445.3250732421875, 2558.820556640625, 2929.428466796875]]}
+{'ImageID': 9, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.649827241897583], 'Boxes': [[1399.3748779296875, 1355.706298828125, 2038.998046875, 3073.833740234375]]}
+{'ImageID': 14, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.5606428980827332, 0.5530780553817749], 'Boxes': [[493.6985168457031, 1585.9014892578125, 2405.42919921875, 3212.57421875], [493.6985168457031, 1585.9014892578125, 2405.42919921875, 3212.57421875]]}
+{'ImageID': 19, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5879130363464355], 'Boxes': [[307.4498291015625, 1537.9468994140625, 2507.621826171875, 3481.20556640625]]}
+{'ImageID': 29, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.45066171884536743], 'Boxes': [[1252.3677978515625, 587.69287109375, 2370.02294921875, 3688.0146484375]]}
+{'ImageID': 30, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6376153826713562], 'Boxes': [[250.55142211914062, 1314.814453125, 2750.489990234375, 3704.600341796875]]}
+{'ImageID': 33, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5824630856513977], 'Boxes': [[541.562255859375, 858.4000244140625, 2972.973388671875, 3414.178955078125]]}
+{'ImageID': 43, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 44, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6139478087425232], 'Boxes': [[282.7424621582031, 757.3093872070312, 2880.06982421875, 3327.66845703125]]}
+{'ImageID': 45, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6795980930328369], 'Boxes': [[159.37669372558594, 847.5075073242188, 2878.47216796875, 3548.37548828125]]}
+{'ImageID': 46, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 51, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6780785322189331], 'Boxes': [[324.62445068359375, 1373.9071044921875, 2573.8642578125, 3468.549560546875]]}
+{'ImageID': 52, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 57, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.5926076769828796, 0.48470258712768555], 'Boxes': [[223.19544982910156, 1447.0889892578125, 3011.511474609375, 3751.78125], [232.60484313964844, 1485.7203369140625, 3004.658935546875, 3728.33203125]]}
+{'ImageID': 59, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.5297966599464417, 0.514718770980835], 'Boxes': [[149.7424774169922, 1467.5281982421875, 2388.224853515625, 3379.263671875], [163.4777374267578, 1493.92529296875, 2372.479248046875, 3369.448974609375]]}
+{'ImageID': 63, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 79, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 94, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted'], 'Labelids': [1, 1], 'Scores': [0.5158540606498718, 0.5029752850532532], 'Boxes': [[1187.2613525390625, 0.0, 1498.32763671875, 628.41650390625], [21.398273468017578, 2022.1829833984375, 2689.486083984375, 3817.717529296875]]}
+{'ImageID': 106, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.5605841279029846, 0.5233771800994873], 'Boxes': [[670.71533203125, 1480.333984375, 2923.7529296875, 3217.105224609375], [680.9673461914062, 1495.706298828125, 2922.735107421875, 3198.59375]]}
+{'ImageID': 112, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 131, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6552435159683228], 'Boxes': [[757.5054931640625, 0.0, 1428.244873046875, 1493.6263427734375]]}
+{'ImageID': 150, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 152, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 157, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 159, 'DetectedSigns': 1, 'Labels': ['Wall-mounted'], 'Labelids': [2], 'Scores': [0.4828720688819885], 'Boxes': [[469.4695739746094, 1486.03564453125, 2939.21435546875, 3018.024658203125]]}
+{'ImageID': 162, 'DetectedSigns': 1, 'Labels': ['Wall-mounted'], 'Labelids': [2], 'Scores': [0.47240516543388367], 'Boxes': [[64.7439193725586, 1502.456787109375, 2601.83642578125, 3083.610595703125]]}
+{'ImageID': 171, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.4553443193435669], 'Boxes': [[1220.363525390625, 441.8799133300781, 2311.06201171875, 3649.7119140625]]}
+{'ImageID': 172, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.6430862545967102, 0.5125715732574463], 'Boxes': [[954.97314453125, 1842.974609375, 2596.2490234375, 3138.153564453125], [954.97314453125, 1842.974609375, 2596.2490234375, 3138.153564453125]]}
+{'ImageID': 187, 'DetectedSigns': 2, 'Labels': ['Wall-mounted', 'Pole-mounted'], 'Labelids': [2, 1], 'Scores': [0.6761294007301331, 0.6718437075614929], 'Boxes': [[848.8373413085938, 1681.7117919921875, 2558.013916015625, 3029.06689453125], [848.8373413085938, 1681.7117919921875, 2558.013916015625, 3029.06689453125]]}
+{'ImageID': 189, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.6659876108169556, 0.6087186336517334], 'Boxes': [[307.10791015625, 1683.361083984375, 2294.765380859375, 3150.130126953125], [307.10791015625, 1683.361083984375, 2294.765380859375, 3150.130126953125]]}
+{'ImageID': 195, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.5464686155319214, 0.4740961492061615], 'Boxes': [[172.62168884277344, 1178.0634765625, 2456.27197265625, 3435.662353515625], [189.4961395263672, 1183.2276611328125, 2454.656982421875, 3425.279052734375]]}
+{'ImageID': 199, 'DetectedSigns': 1, 'Labels': ['Wall-mounted'], 'Labelids': [2], 'Scores': [0.45269104838371277], 'Boxes': [[259.5853271484375, 1548.383056640625, 2652.42822265625, 2953.26025390625]]}
+{'ImageID': 203, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.731799840927124], 'Boxes': [[84.29499053955078, 947.1450805664062, 2746.588134765625, 3505.37451171875]]}
+{'ImageID': 217, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.4908483326435089], 'Boxes': [[780.5469360351562, 549.3672485351562, 1814.270751953125, 3984.09375]]}
+{'ImageID': 218, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6774270534515381], 'Boxes': [[206.8255615234375, 314.5885009765625, 2942.066650390625, 3006.486572265625]]}
+{'ImageID': 225, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7030948400497437], 'Boxes': [[332.6057434082031, 661.8980712890625, 2468.11572265625, 2991.502197265625]]}
+{'ImageID': 235, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.4698474705219269], 'Boxes': [[2086.203857421875, 1751.706298828125, 2371.37744140625, 2239.270751953125]]}
+{'ImageID': 237, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 251, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Wall-mounted'], 'Labelids': [1, 2], 'Scores': [0.75013267993927, 0.5651468634605408], 'Boxes': [[421.6112060546875, 768.743896484375, 2430.82666015625, 2762.1298828125], [456.50189208984375, 784.412841796875, 2418.292724609375, 2743.310791015625]]}
+{'ImageID': 253, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7387462258338928], 'Boxes': [[433.8688049316406, 926.0562744140625, 2100.373291015625, 2688.51904296875]]}
+{'ImageID': 256, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted'], 'Labelids': [1, 1], 'Scores': [0.7140353322029114, 0.5478689074516296], 'Boxes': [[576.2819213867188, 317.2481994628906, 2204.152099609375, 1888.0811767578125], [521.2265625, 1670.7816162109375, 2350.4892578125, 3748.332763671875]]}
+{'ImageID': 265, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 293, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5134683847427368], 'Boxes': [[1550.260986328125, 1736.6929931640625, 1818.0792236328125, 2041.152587890625]]}
+{'ImageID': 306, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5380833148956299], 'Boxes': [[1403.185546875, 1231.041748046875, 1774.1939697265625, 1731.0802001953125]]}
+{'ImageID': 315, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.49006137251853943], 'Boxes': [[1436.113037109375, 1064.4027099609375, 1568.90185546875, 1563.0660400390625]]}
+{'ImageID': 319, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted'], 'Labelids': [1, 1], 'Scores': [0.612856924533844, 0.580151379108429], 'Boxes': [[1447.5758056640625, 868.3897094726562, 1861.5054931640625, 1455.9747314453125], [1315.557373046875, 1451.501708984375, 1809.7490234375, 1967.0872802734375]]}
+{'ImageID': 335, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted'], 'Labelids': [1, 1], 'Scores': [0.7205193042755127, 0.54535973072052], 'Boxes': [[1029.4100341796875, 638.0076293945312, 1851.67626953125, 1523.695068359375], [1694.553466796875, 2301.30029296875, 1782.9232177734375, 2559.371826171875]]}
+{'ImageID': 343, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.52774578332901], 'Boxes': [[2626.0615234375, 1627.4854736328125, 2774.677001953125, 1808.7757568359375]]}
+{'ImageID': 350, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 351, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 356, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.8277280330657959], 'Boxes': [[1482.611083984375, 1146.4228515625, 1750.9869384765625, 1520.18408203125]]}
+{'ImageID': 362, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 365, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5859346985816956], 'Boxes': [[1315.96875, 1255.8902587890625, 1623.6251220703125, 1570.217041015625]]}
+{'ImageID': 370, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6558504700660706], 'Boxes': [[997.1464233398438, 1213.9390869140625, 1103.9761962890625, 1540.686767578125]]}
+{'ImageID': 376, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5397929549217224], 'Boxes': [[1563.5396728515625, 1327.33154296875, 1663.9091796875, 1634.447509765625]]}
+{'ImageID': 379, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5041766166687012], 'Boxes': [[1218.3162841796875, 1217.7716064453125, 1636.2626953125, 1653.30908203125]]}
+{'ImageID': 393, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7952820658683777], 'Boxes': [[1169.0697021484375, 1106.836669921875, 1593.6915283203125, 1532.8394775390625]]}
+{'ImageID': 406, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7944126725196838], 'Boxes': [[1269.82861328125, 1213.2706298828125, 1700.05712890625, 1653.7926025390625]]}
+{'ImageID': 415, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7716443538665771], 'Boxes': [[941.8629760742188, 534.7196044921875, 1648.675048828125, 1227.3416748046875]]}
+{'ImageID': 419, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5658158659934998], 'Boxes': [[1431.679931640625, 1284.8843994140625, 1549.9622802734375, 1653.619384765625]]}
+{'ImageID': 425, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5671551823616028], 'Boxes': [[973.1647338867188, 1069.7235107421875, 1430.40673828125, 1645.6510009765625]]}
+{'ImageID': 434, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7662001252174377], 'Boxes': [[1229.4207763671875, 1128.6942138671875, 1848.866455078125, 1744.6990966796875]]}
+{'ImageID': 435, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted'], 'Labelids': [1, 1], 'Scores': [0.7778626680374146, 0.5781552195549011], 'Boxes': [[1124.7083740234375, 1055.2305908203125, 1652.68115234375, 1607.7313232421875], [615.3018188476562, 1290.143798828125, 731.284423828125, 1642.65673828125]]}
+{'ImageID': 444, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7772722840309143], 'Boxes': [[1360.5426025390625, 1772.2166748046875, 1646.9112548828125, 2056.96240234375]]}
+{'ImageID': 451, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6493126749992371], 'Boxes': [[1157.35546875, 1394.1177978515625, 1832.322021484375, 2014.789306640625]]}
+{'ImageID': 452, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 481, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7565158605575562], 'Boxes': [[1151.8662109375, 1419.855224609375, 1694.5079345703125, 1950.9779052734375]]}
+{'ImageID': 482, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6792598962783813], 'Boxes': [[1340.1593017578125, 1915.81982421875, 1501.1832275390625, 2337.420166015625]]}
+{'ImageID': 490, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7261829376220703], 'Boxes': [[1304.2828369140625, 1502.5260009765625, 1721.65625, 2034.5093994140625]]}
+{'ImageID': 492, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.8261154890060425], 'Boxes': [[1249.6099853515625, 1594.316650390625, 1681.1729736328125, 2033.161865234375]]}
+{'ImageID': 494, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7741112112998962], 'Boxes': [[1304.4793701171875, 1581.322509765625, 1484.6409912109375, 1940.5745849609375]]}
+{'ImageID': 504, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.8310959339141846], 'Boxes': [[1199.9351806640625, 1329.1448974609375, 1736.64697265625, 1876.67529296875]]}
+{'ImageID': 514, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6333433985710144], 'Boxes': [[1196.37646484375, 1236.1776123046875, 1355.93408203125, 1751.6702880859375]]}
+{'ImageID': 518, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.4864659905433655], 'Boxes': [[1160.2059326171875, 1315.108642578125, 1339.7017822265625, 1737.6285400390625]]}
+{'ImageID': 526, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.8380086421966553], 'Boxes': [[1104.002685546875, 1365.4451904296875, 1504.8287353515625, 1781.5924072265625]]}
+{'ImageID': 533, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.8650040626525879], 'Boxes': [[1292.2808837890625, 1415.636474609375, 1680.5164794921875, 1818.2950439453125]]}
+{'ImageID': 540, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.774546205997467], 'Boxes': [[976.3357543945312, 1613.640625, 1388.112548828125, 2072.1640625]]}
+{'ImageID': 541, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5861451625823975], 'Boxes': [[1423.234375, 1602.5374755859375, 1549.7679443359375, 1974.8643798828125]]}
+{'ImageID': 543, 'DetectedSigns': 2, 'Labels': ['Pole-mounted', 'Pole-mounted'], 'Labelids': [1, 1], 'Scores': [0.7241458892822266, 0.48354944586753845], 'Boxes': [[942.1482543945312, 1524.5184326171875, 1314.9029541015625, 1907.646240234375], [1003.967529296875, 1247.6767578125, 1308.37109375, 1895.0548095703125]]}
+{'ImageID': 572, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6475176215171814], 'Boxes': [[903.9002075195312, 1471.629638671875, 1416.5958251953125, 1974.2379150390625]]}
+{'ImageID': 577, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.4815463125705719], 'Boxes': [[1151.592041015625, 1698.128662109375, 1228.1220703125, 1957.908447265625]]}
+{'ImageID': 578, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7554830312728882], 'Boxes': [[902.0967407226562, 1623.4981689453125, 1235.9500732421875, 2000.56591796875]]}
+{'ImageID': 585, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5524667501449585], 'Boxes': [[1047.03564453125, 1098.266357421875, 1253.2373046875, 1849.6676025390625]]}
+{'ImageID': 592, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6489788293838501], 'Boxes': [[665.2132568359375, 924.9890747070312, 1627.353759765625, 1845.01318359375]]}
+{'ImageID': 620, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 634, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 639, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5562577247619629], 'Boxes': [[478.747314453125, 883.503173828125, 1508.40380859375, 1867.5096435546875]]}
+{'ImageID': 643, 'DetectedSigns': 0, 'Labels': [], 'Labelids': [], 'Scores': [], 'Boxes': []}
+{'ImageID': 661, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.48824411630630493], 'Boxes': [[1124.818603515625, 976.989990234375, 1343.3714599609375, 2006.636962890625]]}
+{'ImageID': 663, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7781090140342712], 'Boxes': [[966.5343627929688, 1387.365234375, 1058.6129150390625, 1721.5380859375]]}
+{'ImageID': 670, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6947115063667297], 'Boxes': [[516.378662109375, 1014.6681518554688, 1781.8177490234375, 2212.082763671875]]}
+{'ImageID': 673, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.7273480892181396], 'Boxes': [[620.4190673828125, 1346.4534912109375, 1628.5682373046875, 2349.5830078125]]}
+{'ImageID': 685, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.8406088352203369], 'Boxes': [[771.8533935546875, 1288.6468505859375, 1474.497802734375, 2179.936767578125]]}
+{'ImageID': 689, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5172623991966248], 'Boxes': [[942.4985961914062, 902.20458984375, 1336.6597900390625, 2339.467041015625]]}
+{'ImageID': 691, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5574126839637756], 'Boxes': [[628.5216674804688, 2156.85986328125, 1884.2054443359375, 3551.07861328125]]}
+{'ImageID': 702, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.568091630935669], 'Boxes': [[1199.9088134765625, 1633.415283203125, 1493.50146484375, 2005.1636962890625]]}
+{'ImageID': 703, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.6001234650611877], 'Boxes': [[732.52587890625, 1334.3145751953125, 1506.193115234375, 2109.784912109375]]}
+{'ImageID': 704, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.5350031852722168], 'Boxes': [[850.9104614257812, 1269.2559814453125, 1169.026611328125, 2247.66015625]]}
+{'ImageID': 711, 'DetectedSigns': 1, 'Labels': ['Pole-mounted'], 'Labelids': [1], 'Scores': [0.692487359046936], 'Boxes': [[866.0938110351562, 1105.684814453125, 1421.7242431640625, 2340.0126953125]]}
+Total detected signs: 96
