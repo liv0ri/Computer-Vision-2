@@ -1,8 +1,9 @@
 import torch
+from torch.amp import autocast
+from torch.utils.data import Dataset
 from torchvision.ops import box_iou
 import matplotlib.pyplot as plt
 import os
-from torch.utils.data import Dataset
 import json
 from PIL import Image, ImageOps
 import numpy as np
@@ -12,41 +13,53 @@ from effdet.efficientdet import HeadNet
 
 
 def get_device():
-    """Use CUDA if available else CPU"""
+    """Get the best available device (CUDA if available, else CPU)."""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
     return device
 
 
-def get_efficientdet(num_classes, model_name='tf_efficientdet_d2'):
+def get_efficientdet_train(num_classes):
     """
-    Get an EfficientDet model configured for the specified number of classes.
+    Create an EfficientDet model wrapped for training.
     
     Args:
-        num_classes: Number of classes (including background)
-        model_name: EfficientDet variant to use (e.g., 'tf_efficientdet_d0', 'tf_efficientdet_d2')
+        num_classes: Number of classes (including background if required)
     
     Returns:
-        DetBenchTrain model for training
+        Tuple of (model, config) where model is DetBenchTrain wrapper
     """
-    config = get_efficientdet_config(model_name)
+    config = get_efficientdet_config('tf_efficientdet_d2')
     config.num_classes = num_classes
-    config.image_size = (512, 512)
+    # Don't override image_size - use default from config (768 for D2)
+    # The albumentations transforms handle resizing to match
     
-    model = EfficientDet(config, pretrained_backbone=True)
-    model.class_net = HeadNet(config, num_outputs=num_classes)
+    # Create base model
+    net = EfficientDet(config, pretrained_backbone=True)
+    
+    # Reset classification head for new number of classes
+    net.class_net = HeadNet(
+        config,
+        num_outputs=config.num_classes,
+    )
+    
+    # Wrap in training benchmark
+    model = DetBenchTrain(net, config)
     
     return model, config
 
 
-def get_efficientdet_train(num_classes, model_name='tf_efficientdet_d2'):
-    """Get EfficientDet wrapped for training"""
-    model, config = get_efficientdet(num_classes, model_name)
-    return DetBenchTrain(model, config), config
-
-
 def get_efficientdet_predict(model, config):
-    """Wrap trained model for inference"""
+    """
+    Create an EfficientDet model wrapped for prediction/inference.
+    
+    Args:
+        model: Trained DetBenchTrain model
+        config: Model configuration
+    
+    Returns:
+        DetBenchPredict wrapper for inference
+    """
     return DetBenchPredict(model.model, config)
 
 
@@ -55,53 +68,41 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
     Train the model for one epoch.
     
     Args:
-        model: DetBenchTrain model
+        model: EfficientDet model (DetBenchTrain)
         loader: DataLoader for training data
         optimizer: Optimizer
         device: Device to use
-        scaler: GradScaler for mixed precision (optional)
+        scaler: Optional GradScaler for mixed precision
     
     Returns:
-        Dictionary with average losses
+        Dictionary with 'total', 'cls', and 'box' losses
     """
-    from torch.amp import autocast
-    
     model.train()
+
     total_loss = 0.0
     total_cls_loss = 0.0
     total_box_loss = 0.0
 
     for images, targets in loader:
+        # Stack images into batch tensor
         images = torch.stack([img.to(device) for img in images])
         
-        # Prepare targets for EfficientDet format
-        # EfficientDet expects boxes in [x1, y1, x2, y2] format and batch dimension
-        batch_size = images.shape[0]
+        # Prepare targets for EfficientDet
+        boxes = [t["boxes"].to(device) for t in targets]
+        labels = [t["labels"].to(device) for t in targets]
         
-        # Find max number of boxes in batch for padding
-        max_boxes = max(len(t['boxes']) for t in targets)
-        if max_boxes == 0:
-            max_boxes = 1
-        
-        # Create padded tensors
-        boxes_batch = torch.zeros(batch_size, max_boxes, 4, device=device)
-        labels_batch = torch.zeros(batch_size, max_boxes, dtype=torch.float32, device=device)
-        
-        for i, t in enumerate(targets):
-            num_boxes = len(t['boxes'])
-            if num_boxes > 0:
-                boxes_batch[i, :num_boxes] = t['boxes'].to(device)
-                labels_batch[i, :num_boxes] = t['labels'].float().to(device)
-        
+        # Create target dict for EfficientDet
         target_dict = {
-            'bbox': boxes_batch,
-            'cls': labels_batch,
+            "bbox": boxes,
+            "cls": labels,
         }
 
         optimizer.zero_grad()
         
         with autocast('cuda', enabled=(scaler is not None)):
             loss_dict = model(images, target_dict)
+            
+            # EfficientDet returns loss dict with 'loss', 'class_loss', 'box_loss'
             loss = loss_dict['loss']
             cls_loss = loss_dict.get('class_loss', torch.tensor(0.0))
             box_loss = loss_dict.get('box_loss', torch.tensor(0.0))
@@ -115,12 +116,11 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
             optimizer.step()
 
         total_loss += loss.item()
-        if isinstance(cls_loss, torch.Tensor):
-            total_cls_loss += cls_loss.item()
-        if isinstance(box_loss, torch.Tensor):
-            total_box_loss += box_loss.item()
+        total_cls_loss += cls_loss.item() if isinstance(cls_loss, torch.Tensor) else cls_loss
+        total_box_loss += box_loss.item() if isinstance(box_loss, torch.Tensor) else box_loss
 
     num_batches = len(loader)
+
     return {
         "total": total_loss / num_batches,
         "cls": total_cls_loss / num_batches,
@@ -130,19 +130,19 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
 
 def evaluate_map(model, data_loader, device, coco_gt, config):
     """
-    Evaluate mAP using COCO evaluation.
+    Evaluate mAP using COCO evaluation metrics.
     
     Args:
         model: Trained model (DetBenchTrain)
         data_loader: DataLoader for validation data
-        device: Device
+        device: Device to use
         coco_gt: COCO ground truth object
-        config: EfficientDet config
+        config: Model configuration
     
     Returns:
         COCO evaluation stats
     """
-    # Wrap for inference
+    # Create prediction wrapper
     eval_model = DetBenchPredict(model.model, config)
     eval_model.to(device)
     eval_model.eval()
@@ -157,25 +157,29 @@ def evaluate_map(model, data_loader, device, coco_gt, config):
             for target, output in zip(targets, outputs):
                 image_id = int(target["image_id"])
                 
-                # EfficientDet outputs: [batch, num_detections, 6]
-                # Format: [x1, y1, x2, y2, score, class]
-                if output.dim() == 1:
-                    output = output.unsqueeze(0)
-                
-                for det in output:
-                    if det[4] > 0.01:  # Filter very low scores
-                        x1, y1, x2, y2, score, cls = det.cpu().numpy()
+                # EfficientDet output: [num_dets, 6] -> [x1, y1, x2, y2, score, class]
+                boxes = output[:, :4].cpu().numpy()
+                scores = output[:, 4].cpu().numpy()
+                labels = output[:, 5].cpu().numpy()
+
+                for box, score, label in zip(boxes, scores, labels):
+                    if score > 0.01:  # Filter low confidence
                         coco_results.append({
                             "image_id": image_id,
-                            "category_id": int(cls),
-                            "bbox": [float(x1), float(y1), float(x2 - x1), float(y2 - y1)],
+                            "category_id": int(label),
+                            "bbox": [
+                                float(box[0]),
+                                float(box[1]),
+                                float(box[2] - box[0]),
+                                float(box[3] - box[1]),
+                            ],
                             "score": float(score),
                         })
 
     if len(coco_results) == 0:
-        print("No detections found!")
+        print("No predictions to evaluate")
         return [0.0] * 12
-    
+        
     coco_dt = coco_gt.loadRes(coco_results)
     coco_eval = COCOeval(coco_gt, coco_dt, "bbox")
     coco_eval.evaluate()
@@ -192,16 +196,16 @@ def f1_score_by_iou(model, loader, device, config, iou_threshold=0.5, score_thre
     Args:
         model: Trained model (DetBenchTrain)
         loader: DataLoader
-        device: Device
-        config: EfficientDet config
+        device: Device to use
+        config: Model configuration
         iou_threshold: IoU threshold for matching
         score_threshold: Score threshold for filtering predictions
     
     Returns:
         F1 score
     """
-    # Wrap for inference
-    eval_model = DetBenchPredict(model.model, config)
+    # Create prediction wrapper
+    eval_model = DetBenchPredict(model.model)
     eval_model.to(device)
     eval_model.eval()
     
@@ -215,23 +219,16 @@ def f1_score_by_iou(model, loader, device, config, iou_threshold=0.5, score_thre
             for out, tgt in zip(outputs, targets):
                 gt_boxes = tgt["boxes"].to(device)
                 gt_labels = tgt["labels"].to(device)
+
+                # EfficientDet output: [num_dets, 6] -> [x1, y1, x2, y2, score, class]
+                scores = out[:, 4]
+                keep = scores > score_threshold
                 
-                # Parse EfficientDet output: [num_detections, 6]
-                # Format: [x1, y1, x2, y2, score, class]
-                if out.dim() == 1:
-                    out = out.unsqueeze(0)
-                
-                # Filter by score
-                keep = out[:, 4] > score_threshold
-                pred_boxes = out[keep, :4]
-                pred_labels = out[keep, 5].long()
+                pred_boxes = out[keep][:, :4]
+                pred_labels = out[keep][:, 5].long()
 
                 if len(pred_boxes) == 0:
                     fn += len(gt_boxes)
-                    continue
-
-                if len(gt_boxes) == 0:
-                    fp += len(pred_boxes)
                     continue
 
                 ious = box_iou(pred_boxes, gt_boxes)
@@ -264,17 +261,19 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
         img: Image tensor (C, H, W)
         prediction: EfficientDet prediction tensor [num_dets, 6]
         class_names: Dictionary mapping class IDs to names
-        threshold: Score threshold for visualization
+        threshold: Score threshold for displaying predictions
     """
-    plt.figure(figsize=(10, 10))
+    plt.figure(figsize=(12, 8))
     plt.imshow(img.permute(1, 2, 0).cpu())
     
-    if prediction.dim() == 1:
-        prediction = prediction.unsqueeze(0)
-    
+    # EfficientDet output: [num_dets, 6] -> [x1, y1, x2, y2, score, class]
     for det in prediction:
-        x1, y1, x2, y2, score, label = det.cpu().numpy()
+        x1, y1, x2, y2, score, label = det
         if score > threshold:
+            x1, y1, x2, y2 = x1.cpu(), y1.cpu(), x2.cpu(), y2.cpu()
+            score = score.cpu()
+            label = int(label.cpu())
+            
             plt.gca().add_patch(
                 plt.Rectangle(
                     (x1, y1),
@@ -285,20 +284,22 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
                     linewidth=2
                 )
             )
-            class_name = class_names.get(int(label), "Unknown")
+            class_name = class_names.get(label, f"Class {label}")
             plt.text(
                 x1, y1 - 5,
                 f"{class_name} {score:.2f}",
                 color="red",
                 fontsize=10,
-                backgroundcolor="white"
+                bbox=dict(boxstyle="round,pad=0.3", facecolor="yellow", alpha=0.5)
             )
+    
     plt.axis("off")
+    plt.tight_layout()
     plt.show()
 
 
 class SignsDataset(Dataset):
-    """Dataset class for traffic sign detection with COCO-format annotations."""
+    """Dataset class for loading traffic sign images with COCO-format annotations."""
     
     def __init__(self, root, annFile, transforms, preload=True):
         self.root = root
@@ -306,6 +307,8 @@ class SignsDataset(Dataset):
 
         with open(annFile) as f:
             data = json.load(f)
+
+        self.annotations = data["annotations"]
 
         self.preload = preload
         self.loaded_images = []
@@ -324,7 +327,7 @@ class SignsDataset(Dataset):
             if preload:
                 with Image.open(img_path) as img:
                     self.loaded_images.append(img.convert("RGB").copy())
-        
+
         self.imgToAnns = {img["id"]: [] for img in self.images_info}
         for ann in data["annotations"]:
             if ann["image_id"] in self.imgToAnns:
@@ -360,16 +363,11 @@ class SignsDataset(Dataset):
         boxes = augmented["bboxes"]
         labels = augmented["labels"]
 
-        # Handle empty boxes case
-        if len(boxes) > 0:
-            boxes = torch.tensor(
-                [[x, y, x + w, y + h] for x, y, w, h in boxes],
-                dtype=torch.float32
-            )
-            labels = torch.tensor(labels, dtype=torch.int64)
-        else:
-            boxes = torch.zeros((0, 4), dtype=torch.float32)
-            labels = torch.zeros((0,), dtype=torch.int64)
+        boxes = torch.tensor(
+            [[x, y, x + w, y + h] for x, y, w, h in boxes],
+            dtype=torch.float32
+        )
+        labels = torch.tensor(labels, dtype=torch.int64)
 
         target = {
             "boxes": boxes,
