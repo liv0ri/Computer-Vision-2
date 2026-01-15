@@ -1,0 +1,14 @@
+Metric,Value
+mAP IoU=0.5:0.95,0.0
+mAP IoU=0.5,0.0
+mAP IoU=0.75,0.0
+mAP small,0.0
+mAP medium,0.0
+mAP large,0.0
+AR max=1,0.0
+AR max=10,0.0
+AR max=100,0.0
+AR small,0.0
+AR medium,0.0
+AR large,0.0
+F1@IoU=0.5,0.001

@@ -143,7 +143,7 @@ def evaluate_map(model, data_loader, device, coco_gt, config):
         COCO evaluation stats
     """
     # Create prediction wrapper
-    eval_model = DetBenchPredict(model.model, config)
+    eval_model = DetBenchPredict(model.model)
     eval_model.to(device)
     eval_model.eval()
     
