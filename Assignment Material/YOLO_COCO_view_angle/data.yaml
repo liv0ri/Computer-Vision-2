@@ -1,0 +1,10 @@
+path: "Assignment Material/YOLO_COCO_view_angle"
+train: images/train
+val: images/val
+test: images/test
+
+nc: 3
+names:
+  - Back
+  - Front
+  - Side
