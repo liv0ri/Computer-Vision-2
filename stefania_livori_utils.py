@@ -46,7 +46,8 @@ def get_faster_rcnn(num_classes):
     return model
 
 def get_retinanet(num_classes):
-    model = retinanet_resnet50_fpn_v2(weights="DEFAULT")  # using most recent weights
+    # using most recent weights
+    model = retinanet_resnet50_fpn_v2(weights="DEFAULT") 
 
     num_anchors = model.head.classification_head.num_anchors
     model.head.classification_head = RetinaNetClassificationHead(in_channels=256, num_anchors=num_anchors, num_classes=num_classes, norm_layer=partial(torch.nn.GroupNorm, 32))
