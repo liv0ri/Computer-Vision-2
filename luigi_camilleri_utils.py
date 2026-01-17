@@ -11,30 +11,19 @@ from pycocotools.cocoeval import COCOeval
 from effdet import get_efficientdet_config, EfficientDet, DetBenchTrain, DetBenchPredict
 from effdet.efficientdet import HeadNet
 
-
+# Gets the best available device (CUDA if available, else CPU).
 def get_device():
-    """Get the best available device (CUDA if available, else CPU)."""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
     return device
 
-
+# Creates an EfficientDet model for training.
 def get_efficientdet_train(num_classes):
-    """
-    Create an EfficientDet model wrapped for training.
-    
-    Args:
-        num_classes: Number of classes (including background if required)
-    
-    Returns:
-        Tuple of (model, config) where model is DetBenchTrain wrapper
-    """
+
     config = get_efficientdet_config('tf_efficientdet_d2')
     config.num_classes = num_classes
-    # Don't override image_size - use default from config (768 for D2)
-    # The albumentations transforms handle resizing to match
     
-    # Create base model
+    # Creates base model
     net = EfficientDet(config, pretrained_backbone=True)
     
     # Reset classification head for new number of classes
@@ -43,40 +32,12 @@ def get_efficientdet_train(num_classes):
         num_outputs=config.num_classes,
     )
     
-    # Wrap in training benchmark
+    # Wraps in training benchmark
     model = DetBenchTrain(net, config)
-    
     return model, config
 
-
-def get_efficientdet_predict(model, config):
-    """
-    Create an EfficientDet model wrapped for prediction/inference.
-    
-    Args:
-        model: Trained DetBenchTrain model
-        config: Model configuration
-    
-    Returns:
-        DetBenchPredict wrapper for inference
-    """
-    return DetBenchPredict(model.model, config)
-
-
+# Trains the model for one epoch and returns loss statistics.
 def train_one_epoch(model, loader, optimizer, device, scaler=None):
-    """
-    Train the model for one epoch.
-    
-    Args:
-        model: EfficientDet model (DetBenchTrain)
-        loader: DataLoader for training data
-        optimizer: Optimizer
-        device: Device to use
-        scaler: Optional GradScaler for mixed precision
-    
-    Returns:
-        Dictionary with 'total', 'cls', and 'box' losses
-    """
     model.train()
 
     total_loss = 0.0
@@ -84,21 +45,23 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
     total_box_loss = 0.0
 
     for images, targets in loader:
-        # Stack images into batch tensor
+        # Stacks images into batch tensor
         images = torch.stack([img.to(device) for img in images])
         
-        # Prepare targets for EfficientDet
+        # Prepares targets for EfficientDet
         boxes = [t["boxes"].to(device) for t in targets]
         labels = [t["labels"].to(device) for t in targets]
         
-        # Create target dict for EfficientDet
+        # Creates target dict for EfficientDet
         target_dict = {
             "bbox": boxes,
             "cls": labels,
         }
 
+        # Zero gradients
         optimizer.zero_grad()
         
+        # autocast for mixed precision
         with autocast('cuda', enabled=(scaler is not None)):
             loss_dict = model(images, target_dict)
             
@@ -107,6 +70,7 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
             cls_loss = loss_dict.get('class_loss', torch.tensor(0.0))
             box_loss = loss_dict.get('box_loss', torch.tensor(0.0))
 
+        # Backpropagation
         if scaler is not None:
             scaler.scale(loss).backward()
             scaler.step(optimizer)
@@ -127,59 +91,53 @@ def train_one_epoch(model, loader, optimizer, device, scaler=None):
         "box": total_box_loss / num_batches,
     }
 
-
+# Evaluates mAP using COCO evaluation metrics.
 def evaluate_map(model, data_loader, device, coco_gt, config):
-    """
-    Evaluate mAP using COCO evaluation metrics.
-    
-    Args:
-        model: Trained model (DetBenchTrain)
-        data_loader: DataLoader for validation data
-        device: Device to use
-        coco_gt: COCO ground truth object
-        config: Model configuration
-    
-    Returns:
-        COCO evaluation stats
-    """
-    # Create prediction wrapper
+
+    # Creates prediction wrapper for evaluation
     eval_model = DetBenchPredict(model.model)
     eval_model.to(device)
     eval_model.eval()
     
     coco_results = []
 
+    # Prediction loop
     with torch.no_grad():
         for images, targets in data_loader:
             images = torch.stack([img.to(device) for img in images])
             outputs = eval_model(images)
 
+            # Loops each pair of ground truth target and model output in the batch
             for target, output in zip(targets, outputs):
+                # Gets the image ID for this sample
                 image_id = int(target["image_id"])
                 
-                # EfficientDet output: [num_dets, 6] -> [x1, y1, x2, y2, score, class]
-                boxes = output[:, :4].cpu().numpy()
-                scores = output[:, 4].cpu().numpy()
-                labels = output[:, 5].cpu().numpy()
+                # Extracts predicted bounding boxes, scores, and labels from the output tensor
+                boxes = output[:, :4].cpu().numpy()   # Predicted box coordinates [x1, y1, x2, y2]
+                scores = output[:, 4].cpu().numpy()   # Confidence scores for each prediction
+                labels = output[:, 5].cpu().numpy()   # Predicted class labels
 
+                # Loops for each predicted box, score, and label
                 for box, score, label in zip(boxes, scores, labels):
-                    if score > 0.01:  # Filter low confidence
+                    if score > 0.01:  # Only keeps predictions with confidence above threshold
                         coco_results.append({
-                            "image_id": image_id,
-                            "category_id": int(label),
-                            "bbox": [
+                            "image_id": image_id,           # The image this prediction belongs to
+                            "category_id": int(label),      # The predicted class label
+                            "bbox": [                       # Convert [x1, y1, x2, y2] to [x, y, width, height] (COCO format)
                                 float(box[0]),
                                 float(box[1]),
                                 float(box[2] - box[0]),
                                 float(box[3] - box[1]),
                             ],
-                            "score": float(score),
+                            "score": float(score),          # The confidence score for this prediction
                         })
 
+    # Handles case with no predictions
     if len(coco_results) == 0:
         print("No predictions to evaluate")
         return [0.0] * 12
         
+    # Results evaluation stats
     coco_dt = coco_gt.loadRes(coco_results)
     coco_eval = COCOeval(coco_gt, coco_dt, "bbox")
     coco_eval.evaluate()
@@ -188,103 +146,84 @@ def evaluate_map(model, data_loader, device, coco_gt, config):
 
     return coco_eval.stats
 
-
+# Calculates F1 score based on IoU matching.
 def f1_score_by_iou(model, loader, device, config, iou_threshold=0.5, score_threshold=0.1):
-    """
-    Calculate F1 score based on IoU matching.
-    
-    Args:
-        model: Trained model (DetBenchTrain)
-        loader: DataLoader
-        device: Device to use
-        config: Model configuration
-        iou_threshold: IoU threshold for matching
-        score_threshold: Score threshold for filtering predictions
-    
-    Returns:
-        F1 score
-    """
-    # Create prediction wrapper
+    # Creates prediction wrapper
     eval_model = DetBenchPredict(model.model)
     eval_model.to(device)
     eval_model.eval()
     
+    # Initialisies true positives, false positives, false negatives
     tp = fp = fn = 0
 
-    with torch.no_grad():
-        for images, targets in loader:
+    with torch.no_grad():  # Gets the present state where gradients are not tracked
+        for images, targets in loader:  # Gets each batch of images and targets from the loader
             images = torch.stack([img.to(device) for img in images])
             outputs = eval_model(images)
 
-            for out, tgt in zip(outputs, targets):
+            for out, tgt in zip(outputs, targets):  # Gets each prediction and its corresponding ground truth
                 gt_boxes = tgt["boxes"].to(device)
-                gt_labels = tgt["labels"].to(device)
+                gt_labels = tgt["labels"].to(device)  
 
-                # EfficientDet output: [num_dets, 6] -> [x1, y1, x2, y2, score, class]
-                scores = out[:, 4]
-                keep = scores > score_threshold
+                # Shows EfficientDet output format
+                scores = out[:, 4]  # Gets the present prediction scores
+                keep = scores > score_threshold  # Gets the present mask for predictions above the score threshold
                 
-                pred_boxes = out[keep][:, :4]
-                pred_labels = out[keep][:, 5].long()
+                pred_boxes = out[keep][:, :4]  # Gets the present predicted boxes above threshold
+                pred_labels = out[keep][:, 5].long()  # Gets the present predicted labels above threshold
 
-                if len(pred_boxes) == 0:
+                if len(pred_boxes) == 0:  # Shows the case where there are no predictions
                     fn += len(gt_boxes)
-                    continue
 
-                ious = box_iou(pred_boxes, gt_boxes)
-                matched = set()
+                ious = box_iou(pred_boxes, gt_boxes)  # Gets the present IoU matrix between predictions and ground truths
+                matched = set() 
 
-                for i in range(len(pred_boxes)):
-                    max_iou, idx = ious[i].max(0)
+                for i in range(len(pred_boxes)):  
+                    max_iou, idx = ious[i].max(0)  # Gets the present maximum IoU and its index for this prediction
+                    # If the maximum IoU exceeds the threshold, it is a true positive else a false positive
                     if (
-                        max_iou >= iou_threshold
-                        and idx.item() not in matched
-                        and pred_labels[i] == gt_labels[idx]
+                        max_iou >= iou_threshold  
+                        and idx.item() not in matched  
+                        and pred_labels[i] == gt_labels[idx]  
                     ):
-                        tp += 1
-                        matched.add(idx.item())
+                        tp += 1  
+                        matched.add(idx.item())  
                     else:
                         fp += 1
 
-                fn += len(gt_boxes) - len(matched)
+                fn += len(gt_boxes) - len(matched)  # Gets the present false negatives
 
-    precision = tp / (tp + fp + 1e-6)
-    recall = tp / (tp + fn + 1e-6)
+    precision = tp / (tp + fp + 1e-6)  # Gets the precision
+    recall = tp / (tp + fn + 1e-6)  # Gets the recall
     return 2 * (precision * recall) / (precision + recall + 1e-6)
 
-
+# Visualises predictions on an image.
 def visualize_predictions(img, prediction, class_names, threshold=0.1):
-    """
-    Visualize predictions on an image.
-    
-    Args:
-        img: Image tensor (C, H, W)
-        prediction: EfficientDet prediction tensor [num_dets, 6]
-        class_names: Dictionary mapping class IDs to names
-        threshold: Score threshold for displaying predictions
-    """
     plt.figure(figsize=(12, 8))
     plt.imshow(img.permute(1, 2, 0).cpu())
     
-    # EfficientDet output: [num_dets, 6] -> [x1, y1, x2, y2, score, class]
+
     for det in prediction:
         x1, y1, x2, y2, score, label = det
+        # If the score exceeds the threshold, draw the bounding box and label
         if score > threshold:
             x1, y1, x2, y2 = x1.cpu(), y1.cpu(), x2.cpu(), y2.cpu()
             score = score.cpu()
             label = int(label.cpu())
             
+            # Draws the bounding box as a rectangle on the image
             plt.gca().add_patch(
                 plt.Rectangle(
                     (x1, y1),
-                    x2 - x1,
-                    y2 - y1,
+                    x2 - x1,  # Width of the box
+                    y2 - y1,  # Height of the box
                     fill=False,
                     edgecolor="red",
                     linewidth=2
                 )
             )
             class_name = class_names.get(label, f"Class {label}")
+            # Draws the class name and score above the bounding box
             plt.text(
                 x1, y1 - 5,
                 f"{class_name} {score:.2f}",
@@ -297,10 +236,9 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
     plt.tight_layout()
     plt.show()
 
-
+# Dataset class for loading traffic sign images with COCO-format annotations.
 class SignsDataset(Dataset):
-    """Dataset class for loading traffic sign images with COCO-format annotations."""
-    
+    # Initializes the dataset with image root directory, annotation file, transformations, and preload option.
     def __init__(self, root, annFile, transforms, preload=True):
         self.root = root
         self.transforms = transforms
@@ -333,6 +271,7 @@ class SignsDataset(Dataset):
             if ann["image_id"] in self.imgToAnns:
                 self.imgToAnns[ann["image_id"]].append(ann)
 
+    # Retrieves an image and its corresponding target annotations.
     def __getitem__(self, idx):
         img_info = self.images_info[idx]
         image_id = img_info["id"]
@@ -377,5 +316,6 @@ class SignsDataset(Dataset):
 
         return img, target
 
+    # Returns the length of the dataset.
     def __len__(self):
         return len(self.images_info)
