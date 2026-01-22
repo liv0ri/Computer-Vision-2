@@ -68,7 +68,7 @@ The project adheres to GDPR and ensures that personal identifiable information i
  
 - **Comparison:** 2c_results_comparison.ipynb provides consolidated analysis and visualization for all members.  
 
-#### Note: YOLOv8, v11's v12's, Faster-RCNN and RetinaNet's best weights can be downloaded from [(https://drive.google.com/drive/folders/1H9fLw5N9IW8zanUZnn6RRCNCHQ68vxpy?usp=drive_link)].
+#### Note: YOLOv8, v11's v12's, Faster-RCNN, RF-DETR, and RetinaNet's best weights can be downloaded from [(https://drive.google.com/drive/folders/1H9fLw5N9IW8zanUZnn6RRCNCHQ68vxpy?usp=drive_link)].
 
 ## Acknowledgments
 This project was developed as part of the `ARI3129` course at the `University of Malta`.
