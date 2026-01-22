@@ -1,0 +1,30 @@
+# 15/15 iterations complete ✅ (16166.22s)
+# Results saved to /content/drive/.shortcut-targets-by-id/1iLGa_2VPt40nMuzukUEFEnvkrjz2seIO/Computer-Vision-2-main/models/yolov12_tuning
+# Best fitness=0.20042 observed at iteration 15
+# Best fitness metrics are {'metrics/precision(B)': 0.80996, 'metrics/recall(B)': 0.26048, 'metrics/mAP50(B)': 0.29927, 'metrics/mAP50-95(B)': 0.20042, 'val/box_loss': 1.35962, 'val/cls_loss': 1.80376, 'val/dfl_loss': 1.97619, 'fitness': 0.20042}
+# Best fitness model is /content/drive/.shortcut-targets-by-id/1iLGa_2VPt40nMuzukUEFEnvkrjz2seIO/Computer-Vision-2-main/models/train8
+lr0: 0.00802
+lrf: 0.02641
+momentum: 0.93421
+weight_decay: 0.0
+warmup_epochs: 3.46621
+warmup_momentum: 0.95
+box: 7.20515
+cls: 0.43266
+dfl: 1.80445
+hsv_h: 0.01423
+hsv_s: 0.87705
+hsv_v: 0.57758
+degrees: 0.00645
+translate: 0.10698
+scale: 0.4845
+shear: 0.00244
+perspective: 0.0
+flipud: 0.01286
+fliplr: 0.40855
+bgr: 0.00018
+mosaic: 0.94858
+mixup: 0.00376
+cutmix: 0.00337
+copy_paste: 6.0e-05
+close_mosaic: 9.0
