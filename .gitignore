@@ -4,3 +4,5 @@ merged_images.zip
 *ipynb_checkpoints/
 *.venv/
 runs/detect/models/train/
+models
+models_best_weights
