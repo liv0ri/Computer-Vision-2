@@ -213,12 +213,15 @@ def f1_score_by_iou(model, loader, device, iou_threshold=0.5, score_threshold=0.
 
 def visualize_predictions(img, prediction, class_names, threshold=0.1):
     plt.imshow(img.permute(1, 2, 0))
+    count = 0
+    attributes = []
     for box, score, label in zip(
         prediction["boxes"],
         prediction["scores"],
         prediction["labels"]
     ):
         if score > threshold:
+            count += 1
             x1, y1, x2, y2 = box.cpu()
             plt.gca().add_patch(
                 plt.Rectangle(
@@ -235,6 +238,9 @@ def visualize_predictions(img, prediction, class_names, threshold=0.1):
                 f"{class_names[label.item()]} {score:.2f}",
                 color="red"
             )
+            attributes.append(class_names[label.item()])
+    if count > 0:
+        print(f"{count} signs detected. Attributes: {attributes}")
     plt.axis("off")
     plt.show()
 
