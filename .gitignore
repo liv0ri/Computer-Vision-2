@@ -3,3 +3,4 @@ merged_images.zip
 1_data_visualisation.pdf
 *ipynb_checkpoints/
 *.venv/
+runs/detect/models/train/
