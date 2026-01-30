@@ -1,5 +1,7 @@
 __pycache__/
 merged_images.zip
 models/
+models_best_weights/
+1_data_visualisation.pdf
 .venv
 .idea
