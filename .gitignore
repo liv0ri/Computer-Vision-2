@@ -6,3 +6,4 @@ merged_images.zip
 runs/detect/models/train/
 models
 models_best_weights
+.idea
